@@ -1,0 +1,116 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) 
+  {
+    String varNome  = ""; //string que recebe o nome do usuario
+    String varSenha = ""; //string que recebe a senha
+    Boolean correto=false;
+    
+    Scanner input = new Scanner (System.in);
+    
+    System.out.print("Digite o seu nome: ");
+    varNome = input.next();
+   
+    
+    while(!correto) { //loop executa ate que a senha esteja correta
+          System.out.print("Senha: ");
+          varSenha = input.next();
+          correto = verifica(varSenha);// função que verifica senha
+    }
+      
+    
+    System.out.println();
+    System.out.println("Senha cadastrada com sucesso \n");
+  }
+  
+  //funcao de verificacao da senha
+  public static Boolean verifica(String senha) {
+      Boolean contem = false;
+      char c;
+      String especial = "!@#$%^&*,-+";
+      
+      //Verifica tamanho da senha se corresponde ao solicitado caso 
+      //não esteja de acordo returna falso
+      if(senha.length() < 6) {
+          System.out.println("Senha não corresponde ao numero minimo de caracteres");
+          return false;
+      } 
+      
+      //Verifica se tem ao menos um digito
+      //caso nao tenha retorna um falso
+      for (int i = 0; i < senha.length(); i++) {
+           c = senha.charAt(i);
+           if (Character.isDigit(c)) {
+               contem = true;
+               break;
+           }  
+      } 
+      if(contem == false) {
+         System.out.println("Senha deve contem no minimo um digito");
+         return false;
+      }    
+       
+      //Verifica se tem ao menos uma letra minuscula
+      //retorna falso caso nao tenha
+      contem = false;
+      for (int i = 0; i < senha.length(); i++) {
+            c = senha.charAt(i);
+           if (Character.isLowerCase(c)) {
+               contem = true;
+               break;
+           }  
+      } 
+      if(contem == false) {
+         System.out.println("Senha deve contem no minimo uma letra em minusculo");
+         return false;
+      }   
+      
+      
+      //Verifica se tem ao menos uma letra maiscula
+      //retorna falso caso nao tenha
+      contem = false;
+      for (int i = 0; i < senha.length(); i++) {
+           c = senha.charAt(i);
+           if (Character.isUpperCase(c)) {
+               contem = true;
+               break;
+           }  
+      } 
+      if(contem == false) {
+         System.out.println("Senha deve contem no minimo uma letra em maisculo");
+         return false;
+      }       
+      
+      
+      //Verifica se tem ao menos um caractere especial
+      //retorna falso caso nao tenha    
+      contem = false;
+      for (int i = 0; i < senha.length(); i++) {
+           for(int h=0;h < especial.length();h++){
+           if (senha.charAt(i) == especial.charAt(h)) {
+               contem = true;
+               break;
+           }  
+      } 
+      }
+    
+      if(contem == false) {
+         System.out.println("Senha deve contem no minimo um caractere especial");
+         return false;
+      }  
+          
+             return true;
+        }
+}
+ 
+      
+  

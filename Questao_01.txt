@@ -1,0 +1,36 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+
+
+public class Main {
+   public static void main(String args[]) {
+    
+    //Função que recebe um valor numerico como argumento e cria a escada
+      Desenho(5);        
+    }
+    
+    
+    public static void Desenho(int number) {
+       //variaveis numericas
+       int i=0,t=0,m=0;     
+       
+       //For principal  
+       for(i=0;i<=number;i++) {
+          //For que imprime os espacos por linha não preenchidos por asteristicos
+          for(t=0;t<=(number-i);t++) {
+              System.out.print(" ");
+          }
+          //For que imprime os asteristicos
+          for(m=0;m<=(number-t);m++) {
+              System.out.print("*");
+          }
+          System.out.println("");
+        }
+    }
+}
