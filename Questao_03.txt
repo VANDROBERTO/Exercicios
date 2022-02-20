@@ -1,0 +1,57 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.Scanner;
+
+public class Main
+{
+    
+	public static void main(String[] args) {
+	    //Variavel que recebe o numero de anagramas par de uma palavra
+	    int anaGramas = 0;
+	    
+	    //Variavel que recebe a palavra digitada pelo usuario
+	    String varPalavra = "";
+	    
+	 
+	 	System.out.println("Digite uma palavra:");
+		Scanner input = new Scanner (System.in);
+        varPalavra = input.next();
+	    
+	    anaGramas = numberPar(varPalavra);
+	    System.out.println("total de anagramas par : " + anaGramas);
+	}
+	
+	
+	//Função que calcula o numero de anagramas pares retornando um inteiro
+	public static int numberPar(String palavra) {
+	   int par = 0;
+	   int conta=0;
+	   
+	   
+	   //primeiro for que percorre a string
+	   for(int i=0;i<palavra.length();i++) {
+	       //segundo for que percorre a string comparando com a posicao do for primario
+	       for(int e=(i+1);e<(palavra.length());e++) {
+	           //caso os caracteres sejam iguais anagrama par
+	           if(palavra.charAt(i) == palavra.charAt(e)){
+	               
+	              //Verifica se esses dois caracteres estao separados
+	             if(e > (i+1)){
+	                 //Se estiver separados conta dois anagramas pares
+	                  conta+=2;
+	                  } else {
+	                      //caso contrario conta somente um anagrama
+	                      conta++;
+	                  }
+	           }
+	       }
+	   }
+        return conta;
+	 
+	}
+}
